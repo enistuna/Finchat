@@ -17,7 +17,7 @@
 
 # Explanation of The Project
 
-Finchat is a fintech banking assistant designed to handle transactions accurately while providing fluent, helpful advice on general financial topics. It demonstrates both rule-based and generative AI architecture:
+Finchat is a fintech conversational AI designed to handle transactions accurately while providing fluent, helpful advice on general financial topics. It demonstrates both rule-based and generative AI architecture:
 
 *   **Rule-Based**: Handles critical banking operations.
 *   **Generative**: Answers open-ended financial questions using RAG and LLMs.
