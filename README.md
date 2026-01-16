@@ -11,15 +11,16 @@
     *   [Workflow](#3-workflow)
     *   [Data Flow](#4-data-flow)
 *   [Installation](#installation)
-*   [Examples & Images](#Examples-&-Images)
+*   [Rasa Conversation Flow Diagram](#Rasa-Conversation-Flow-Diagram)
+*   [Explanation Video](#Explanation-Video)
 *   [Notes](#notes)
 
 # Explanation of The Project
 
-Finchat is a next-generation banking assistant designed to handle secure transactions accurately while providing fluent, helpful advice on general financial topics. It demonstrates the **"Left Brain / Right Brain" architecture**:
+Finchat is a fintech banking assistant designed to handle transactions accurately while providing fluent, helpful advice on general financial topics. It demonstrates both rule-based and generative AI architecture:
 
-*   **Left Brain (Deterministic)**: Handles critical banking operations like transfers and balance checks with zero hallucination.
-*   **Right Brain (Generative)**: Answers open-ended financial questions using RAG (Retrieval Augmented Generation) and LLMs.
+*   **Rule-Based**: Handles critical banking operations.
+*   **Generative**: Answers open-ended financial questions using RAG and LLMs.
 
 # Details
 
@@ -28,35 +29,35 @@ Finchat is a next-generation banking assistant designed to handle secure transac
 *   **Hybrid Intelligence**: Seamless switching between strict command execution and generative conversation.
 *   **Secure Transactions**: Rule-based handling of money transfers and account inquiries.
 *   **Advisory Capability**: Context-aware answers to questions like *"How can I improve my credit score?"*.
-*   **Modern UI**: Premium, responsive chat interface built with Chainlit.
+*   **Modern UI**: Modern chat interface built with Chainlit.
 *   **Vector Search**: Efficient retrieval of bank policies using ChromaDB.
 
 ## 2. Tech Stack
 
 *   **Frontend**: Chainlit
-*   **NLU & Dialogue**: Rasa 3.x
+*   **Dialogue**: Rasa
 *   **LLM**: Google Gemini 2.0 Flash
-*   **Embeddings**: Sentence-Transformers (`all-MiniLM-L6-v2`)
+*   **Embeddings**: Sentence-Transformers
 *   **Orchestration**: LangChain
 *   **Database**: PostgreSQL
-*   **API**: FastAPI (Transaction Simulation)
+*   **API**: FastAPI
 
 ## 3. Workflow
 
-1.  **User Input**: User sends a message via Chainlit.
-2.  **Intent Classification**: Rasa NLU determines if the user wants to perform an action (e.g., `check_balance`) or ask a question (e.g., `ask_advice`).
+1.  **User Input**: User sends a message.
+2.  **Intent Classification**: Rasa NLU determines if the user wants to perform an action or ask a general question.
 3.  **Routing**:
     *   **Action**: Rasa Core triggers the Action Server -> Calls FastAPI Backend -> Returns structured data.
     *   **Generation**: Action Server routes to RAG Client -> Retrieves docs from ChromaDB -> Generates answer via Gemini.
-4.  **Response**: The system constructs the final response and displays it in the UI.
+4.  **Response**: The system constructs the final response and displays it in the frontend.
 
 ## 4. Data Flow
 
 *   **User -> UI**: Natural Language.
 *   **UI -> Rasa**: JSON payload via REST API.
-*   **Rasa -> Action Server**: Executor calls.
-*   **Action Server -> Backend DB**: SQL Queries (via FastAPI).
-*   **Action Server -> LLM**: Prompt Engineering + Context.
+*   **Rasa -> Action Server**: Executors.
+*   **Action Server -> Backend DB**: SQL Queries via FastAPI.
+*   **Action Server -> LLM**: Prompt Engineering & Context.
 
 # Installation
 
@@ -72,7 +73,7 @@ cd Finchat
 ```
 
 ### 2. Install Dependencies
-This project uses two separate virtual environments to avoid version conflicts between incompatible dependencies.
+This project uses two separate virtual environments to avoid conflicts between incompatible version dependencies.
 
 #### Environment A: Core
 ```bash
@@ -128,12 +129,14 @@ cd src/frontend
 chainlit run app.py
 ```
 
-# Examples & Images
+# Rasa Conversation Flow Diagram
 
 <img src="project_documentation_files\rasa_visualize_diagram.png" alt="rasa visualize" />
-<img src="project_documentation_files\screenshot.png" alt="screenshot" />
-<img width="796" src="project_documentation_files\chat_log_example.png" alt="chatlog" />
+
+# Explanation Video
+[<img src="project_documentation_files\thumbnail_1.jpg" />](https://www.youtube.com/@enistuna)
+*Video is going to be available soon.*
 
 # Notes
 
-This project is the predecessor of [Gənuine](https://github.com/enistuna/Genuine) graduation project. Keep an eye out for more information soon.
+This project is the predecessor of [Gənuine](https://github.com/enistuna/Genuine) graduation project. Keep an eye out for more information.
