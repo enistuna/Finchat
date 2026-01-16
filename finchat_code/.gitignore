@@ -1,18 +1,15 @@
-venv_core/
-venv_ui/
-.venv/
-
 .env
 
 __pycache__/
 *.pyc
 
 .cache/
+src/rasa/.cache/
 .rasa/
 .chroma/
-models/
 
 *.db
 *.sqlite
 
 .DS_Store
+
