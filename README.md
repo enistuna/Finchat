@@ -1,24 +1,22 @@
-# PROJECT: Finchat
+<img width="1260" height="267" src="project_documentation_files\logo_1.png" alt="logo" />
 
-> **A Hybrid Conversational AI blending Rule-Based Control (Rasa) with Generative Intelligence (Gemini + RAG).**
+# Finchat - AI Fintech Chatbot
+**A Turkish Fintech Conversational AI blending Rule-Based systems with GenAI**
 
 # Overview
-
 *   [Explanation of The Project](#explanation-of-the-project)
 *   [Details](#details)
     *   [Features](#1-features)
     *   [Tech Stack](#2-tech-stack)
     *   [Workflow](#3-workflow)
     *   [Data Flow](#4-data-flow)
-*   [Use Case Scenarios](#use-case-scenarios)
 *   [Installation](#installation)
-*   [Resources](#resources)
-*   [Citation](#citation)
+*   [Examples & Images](#Examples-&-Images)
 *   [Notes](#notes)
 
 # Explanation of The Project
 
-FinChat is a next-generation banking assistant designed to handle secure transactions accurately while providing fluent, helpful advice on general financial topics. It demonstrates the **"Left Brain / Right Brain" architecture**:
+Finchat is a next-generation banking assistant designed to handle secure transactions accurately while providing fluent, helpful advice on general financial topics. It demonstrates the **"Left Brain / Right Brain" architecture**:
 
 *   **Left Brain (Deterministic)**: Handles critical banking operations like transfers and balance checks with zero hallucination.
 *   **Right Brain (Generative)**: Answers open-ended financial questions using RAG (Retrieval Augmented Generation) and LLMs.
@@ -60,47 +58,33 @@ FinChat is a next-generation banking assistant designed to handle secure transac
 *   **Action Server -> Backend DB**: SQL Queries (via FastAPI).
 *   **Action Server -> LLM**: Prompt Engineering + Context.
 
-# Use Case Scenarios
-
-**Scenario 1: Transactional (Left Brain)**
-> **User**: "Enis'e 500 TL gönder."
-> **Bot**: (Confirms recipient and amount, checks balance, executes transfer via API, returns success receipt).
-
-**Scenario 2: Advisory (Right Brain)**
-> **User**: "Enflasyon paramı nasıl etkiler?"
-> **Bot**: (Retrieves educational content from vector store, uses Gemini to explain inflation impact on savings).
-
-**Scenario 3: Hybrid**
-> **User**: "Bakiyem ne kadar?" (Transactional)
-> **User**: "Bu parayı vadeli hesaba yatırsam ne kadar kazanırım?" (Advisory based on retrieved balance).
-
 # Installation
 
 ### Prerequisites
-*   Python 3.10+
+*   Python 3.10
 *   PostgreSQL (Local or Cloud)
 *   Google Gemini API Key
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/Start-Ops/Finchat.git
+git clone https://github.com/enistuna/Finchat.git
 cd Finchat
 ```
 
 ### 2. Install Dependencies
-This project uses **Two Separate Environments** to avoid version conflicts between Rasa (Core) and Chainlit (UI).
+This project uses two separate virtual environments to avoid version conflicts between incompatible dependencies.
 
-#### Environment A: Core (Rasa + Backend)
+#### Environment A: Core
 ```bash
-python -m venv venv_core
+py -3.10 -m venv venv_core
 .\venv_core\Scripts\activate
 pip install -r requirements_core.txt
 ```
 
-#### Environment B: UI (Chainlit)
-(Open a new terminal)
+#### Environment B: UI
+
 ```bash
-python -m venv venv_ui
+py -3.10 -m venv venv_ui
 .\venv_ui\Scripts\activate
 pip install -r requirements_ui.txt
 ```
@@ -108,47 +92,48 @@ pip install -r requirements_ui.txt
 ### 3. Environment Setup
 Create a `.env` file in the root directory:
 ```ini
-GEMINI_API_KEY=your_api_key_here
+GEMINI_API_KEY=YOUR_API_KEY
 DATABASE_URL=postgresql://user:password@localhost:5432/findb
 RASA_URL=http://localhost:5005
 ```
 
-### 4. Run the Application
-You will need 3 separate terminals.
+### 4. Running the Application
+You will need 4 separate terminals. Run it in order and wait for first 3 servers to fully initiate.
 
-**Terminal 1 (Backend & Rasa Actions) - uses `venv_core`**
+**Terminal 1 (Backend) - `venv_core`**
 ```bash
 .\venv_core\Scripts\activate
 uvicorn src.backend.main:app --port 8001 &
 python -m rasa_sdk --actions actions
 ```
 
-**Terminal 2 (Rasa Core) - uses `venv_core`**
+**Terminal 2 (Actions) -  `venv_core`**
+```bash
+.\venv_core\Scripts\activate
+uvicorn src.backend.main:app --port 8001 &
+python -m rasa_sdk --actions actions
+```
+
+**Terminal 3 (Rasa) -  `venv_core`**
 ```bash
 .\venv_core\Scripts\activate
 rasa run --enable-api --cors "*" --port 5005
 ```
 
-**Terminal 3 (Frontend) - uses `venv_ui`**
+**Terminal 4 (Frontend) -  `venv_ui`**
 ```bash
 .\venv_ui\Scripts\activate
+python scripts/init_chainlit_db.py
 cd src/frontend
 chainlit run app.py
 ```
 
-# Resources
+# Examples & Images
 
-*   [Rasa Documentation](https://rasa.com/docs/)
-*   [Chainlit Documentation](https://docs.chainlit.io)
-*   [Google Gemini API](https://ai.google.dev/)
-*   [FastAPI](https://fastapi.tiangolo.com/)
-
-# Citation
-
-If you use this project, please cite:
-*   **Author**: Enis Tuna
-*   **Repository**: [Finchat](https://github.com/Start-Ops/Finchat)
+<img src="project_documentation_files\rasa_visualize_diagram.png" alt="rasa visualize" />
+<img src="project_documentation_files\screenshot.png" alt="screenshot" />
+<img width="796" src="project_documentation_files\chat_log_example.png" alt="chatlog" />
 
 # Notes
 
-**This project is the Predecessor of [Gənuine](https://github.com/enistuna/Genuine) graduation project.**
+This project is the predecessor of [Gənuine](https://github.com/enistuna/Genuine) graduation project. Keep an eye out for more information soon.
