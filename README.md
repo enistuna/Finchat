@@ -105,14 +105,12 @@ You will need 4 separate terminals. Run it in order and wait for first 3 servers
 ```bash
 .\venv_core\Scripts\activate
 uvicorn src.backend.main:app --port 8001 &
-python -m rasa_sdk --actions actions
 ```
 
 **Terminal 2 (Actions) -  `venv_core`**
 ```bash
 .\venv_core\Scripts\activate
-uvicorn src.backend.main:app --port 8001 &
-python -m rasa_sdk --actions actions
+python -m rasa run actions --actions src.rasa.actions
 ```
 
 **Terminal 3 (Rasa) -  `venv_core`**
