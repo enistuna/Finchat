@@ -116,7 +116,7 @@ python -m rasa run actions --actions src.rasa.actions
 **Terminal 3 (Rasa) -  `venv_core`**
 ```bash
 .\venv_core\Scripts\activate
-rasa run --enable-api --cors "*" --port 5005
+python -m rasa run --enable-api --cors "*" --model src/rasa/models --endpoints src/rasa/endpoints.yml --credentials src/rasa/credentials.yml
 ```
 
 **Terminal 4 (Frontend) -  `venv_ui`**
@@ -132,7 +132,7 @@ chainlit run app.py
 <img src="project_documentation_files\rasa_visualize_diagram.png" alt="rasa visualize" />
 
 # Explanation Video
-[<img src="project_documentation_files\thumbnail_1.jpg" />](https://www.youtube.com/@enistuna)
+[<img src="project_documentation_files\thumbnail_1.jpg" />](https://youtu.be/kLQ4ITD405A?si=LtObTiRTFb3Zzk2f)
 
 # Notes
 
