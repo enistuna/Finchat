@@ -135,7 +135,6 @@ chainlit run app.py
 
 # Explanation Video
 [<img src="project_documentation_files\thumbnail_1.jpg" />](https://www.youtube.com/@enistuna)
-*Video is going to be available soon.*
 
 # Notes
 
