@@ -1,7 +1,7 @@
 <img width="1260" height="267" src="project_documentation_files\logo_1.png" alt="logo" />
 
 # Finchat - AI Fintech Chatbot
-**A Turkish Fintech Conversational AI blending Rule-Based systems with GenAI**
+**A Turkish Fintech Conversational AI that blends Rule-Based systems with GenAI**
 
 # Overview
 *   [Explanation of The Project](#explanation-of-the-project)
@@ -26,38 +26,37 @@ Finchat is a fintech conversational AI designed to handle transactions accuratel
 
 ## 1. Features
 
-*   **Hybrid Intelligence**: Seamless switching between strict command execution and generative conversation.
-*   **Secure Transactions**: Rule-based handling of money transfers and account inquiries.
-*   **Advisory Capability**: Context-aware answers to questions like *"How can I improve my credit score?"*.
-*   **Modern UI**: Modern chat interface built with Chainlit.
-*   **Vector Search**: Efficient retrieval of bank policies using ChromaDB.
+*   Hybrid architecture. Switching between strict command execution and generative conversation.
+*   Rule-based handling of money transfers and account inquiries.
+*   Context aware answers to questions like *"How can I improve my credit score?"*.
+*   Modern chat interface built with Chainlit.
+*   Efficient retrieval of bank policies using ChromaDB.
 
 ## 2. Tech Stack
 
-*   **Frontend**: Chainlit
-*   **Dialogue**: Rasa
-*   **LLM**: Google Gemini 2.0 Flash
-*   **Embeddings**: Sentence-Transformers
-*   **Orchestration**: LangChain
-*   **Database**: PostgreSQL
-*   **API**: FastAPI
+*   **Python**
+*   **Rasa**
+*   **PostgreSQL**
+*   **FastAPI**
+*   **Chainlit**
+*   **Google Gemini API**
+*   **Transformers**
+*   **LangChain**
 
 ## 3. Workflow
 
 1.  **User Input**: User sends a message.
 2.  **Intent Classification**: Rasa NLU determines if the user wants to perform an action or ask a general question.
 3.  **Routing**:
-    *   **Action**: Rasa Core triggers the Action Server -> Calls FastAPI Backend -> Returns structured data.
-    *   **Generation**: Action Server routes to RAG Client -> Retrieves docs from ChromaDB -> Generates answer via Gemini.
+    *   **Action**: Rasa Core triggers the Action Server >> Calls FastAPI Backend >> Returns structured data.
+    *   **Generation**: Action Server routes to RAG Client >> Retrieves docs from ChromaDB >> Generates answer via Gemini.
 4.  **Response**: The system constructs the final response and displays it in the frontend.
 
 ## 4. Data Flow
 
-*   **User -> UI**: Natural Language.
-*   **UI -> Rasa**: JSON payload via REST API.
-*   **Rasa -> Action Server**: Executors.
-*   **Action Server -> Backend DB**: SQL Queries via FastAPI.
-*   **Action Server -> LLM**: Prompt Engineering & Context.
+*   **User** >> **UI** >> **Rasa** (JSON payload via REST API) >> **Action Server** (Executors)
+    *   **Action Server** >> **Backend DB** (SQL Queries via FastAPI)
+    *   **Action Server** >> **LLM** (Context)
 
 # Installation
 
@@ -136,4 +135,5 @@ chainlit run app.py
 
 # Notes
 
-This project is the predecessor of [Gənuine](https://github.com/enistuna/Genuine) graduation project. Keep an eye out for more information.
+* This project is the predecessor of [Gənuine](https://github.com/enistuna/Genuine) graduation project. Keep an eye out for more information.
+* For any question, contribution or inquiry, [send me an email](mailto:enissstuna@gmail.com).
