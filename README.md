@@ -61,14 +61,14 @@ Finchat is a fintech conversational AI designed to handle transactions accuratel
 # Installation
 
 ### Prerequisites
-*   Python 3.10
-*   PostgreSQL (Local or Cloud)
-*   Google Gemini API Key
+*   **Python 3.10**
+*   **PostgreSQL (Local or Cloud)**
+*   **[Google Gemini API Key](aistudio.google.com/api-keys)**
 
 ### 1. Clone the Repository
 ```bash
 git clone https://github.com/enistuna/Finchat.git
-cd Finchat
+cd Finchat/finchat_code
 ```
 
 ### 2. Install Dependencies
@@ -135,5 +135,5 @@ chainlit run app.py
 
 # Notes
 
-* This project is the predecessor of [Gənuine](https://github.com/enistuna/Genuine) graduation project. Keep an eye out for more information.
+* This project is the predecessor of ***[Gənuine](https://github.com/enistuna/Genuine)*** graduation project. Please make sure to check *Gənuine v1* out to see an improved version of this project.
 * For any question, contribution or inquiry, [send me an email](mailto:enissstuna@gmail.com).
