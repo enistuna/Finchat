@@ -1,4 +1,6 @@
-<img width="1260" height="267" src="project_documentation_files\logo_1.png" alt="logo" />
+<a href="https://www.linkedin.com/in/enistuna/"> 
+  <img width="1260" height="267" src="project_documentation_files\logo_1.png" alt="logo" />
+</a>
 
 # Finchat - AI Fintech Chatbot
 **A Turkish Fintech Conversational AI that blends Rule-Based systems with GenAI**
