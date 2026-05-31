@@ -137,5 +137,5 @@ chainlit run app.py
 
 # Notes
 
-* This project is the predecessor of ***[Gənuine](https://github.com/enistuna/Genuine)*** graduation project. Please make sure to check *Gənuine v1* out to see an improved version of this project.
+* This project is the predecessor of ***[Genuine](https://github.com/enistuna/Genuine)*** graduation project. Please make sure to check **Genuine v1** out to see an improved version of this project.
 * For any question, contribution or inquiry, [send me an email](mailto:enissstuna@gmail.com).
